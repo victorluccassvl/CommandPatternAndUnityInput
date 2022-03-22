@@ -3,19 +3,19 @@ using LeRatTools;
 
 public class Command_Move : ICommand
 {
-    private Vector3 movement;
+    private Vector3 direction;
 
-    public Command_Move(Vector2 input, float moveDistance)
+    public Command_Move(Vector3 direction)
     {
-        input.Normalize();
-        input *= moveDistance;
-        movement = Vector3.zero;
-        movement.x = input.y;
-        movement.z = -input.x;
+        this.direction = direction;
     }
 
-    public Vector3 GetMovement()
+    public void Do(ICommandReceiver receiver)
     {
-        return movement;
+        if (receiver is Move move)
+        {
+            move.SetParameters(direction);
+            move.Work();
+        }
     }
 }

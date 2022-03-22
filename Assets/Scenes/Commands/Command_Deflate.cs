@@ -2,15 +2,11 @@ using LeRatTools;
 
 public class Command_Deflate : ICommand
 {
-    private float ratio;
-
-    public Command_Deflate(float ratio)
+    public void Do(ICommandReceiver receiver)
     {
-        this.ratio = ratio;
-    }
-
-    public float GetRatio()
-    {
-        return ratio;
+        if (receiver is Resize resize)
+        {
+            resize.Work();
+        }
     }
 }

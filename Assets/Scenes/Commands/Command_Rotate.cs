@@ -3,19 +3,19 @@ using LeRatTools;
 
 public class Command_Rotate : ICommand
 {
-    private Vector3 eulerRotation;
+    private Vector3 eulerAngles;
 
-    public Command_Rotate(Vector2 input, float rotation)
+    public Command_Rotate(Vector3 eulerAngles)
     {
-        input.Normalize();
-        input *= rotation;
-        eulerRotation = Vector3.zero;
-        eulerRotation.x = input.x;
-        eulerRotation.z = input.y;
+        this.eulerAngles = eulerAngles;
     }
 
-    public Vector3 GetEulerRotation()
+    public void Do(ICommandReceiver receiver)
     {
-        return -eulerRotation;
+        if (receiver is Rotate rotate)
+        {
+            rotate.SetParameters(eulerAngles);
+            rotate.Work();
+        }
     }
 }
