@@ -6,7 +6,7 @@
             "id": "49ead180-4dd6-4b10-8490-ebc9d42bf65f",
             "actions": [
                 {
-                    "name": "Teleport",
+                    "name": "Jump",
                     "type": "Button",
                     "id": "9540af5b-2e75-4d78-974b-319f4dfdfe32",
                     "expectedControlType": "Button",
@@ -40,8 +40,8 @@
                     "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
-                    "groups": "ControlScheme",
-                    "action": "Teleport",
+                    "groups": "ControlScheme;MouseAndKeyboard",
+                    "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -51,7 +51,7 @@
                     "path": "<Keyboard>/f",
                     "interactions": "",
                     "processors": "",
-                    "groups": "ControlScheme",
+                    "groups": "ControlScheme;MouseAndKeyboard",
                     "action": "Inflate",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -73,7 +73,7 @@
                     "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
-                    "groups": "ControlScheme",
+                    "groups": "ControlScheme;MouseAndKeyboard",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -84,7 +84,7 @@
                     "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
-                    "groups": "ControlScheme",
+                    "groups": "ControlScheme;MouseAndKeyboard",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -95,7 +95,7 @@
                     "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
-                    "groups": "ControlScheme",
+                    "groups": "ControlScheme;MouseAndKeyboard",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -106,7 +106,7 @@
                     "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
-                    "groups": "ControlScheme",
+                    "groups": "ControlScheme;MouseAndKeyboard",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -118,7 +118,7 @@
             "id": "0016e79a-f147-4af9-9cb3-f278609f7357",
             "actions": [
                 {
-                    "name": "New action",
+                    "name": "Sidestep",
                     "type": "Button",
                     "id": "6cc0b6a5-6dbe-4332-9f77-098d0a5f135f",
                     "expectedControlType": "Button",
@@ -149,11 +149,11 @@
                 {
                     "name": "",
                     "id": "b0636816-b886-4880-a88a-d3362dade3d1",
-                    "path": "",
+                    "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
-                    "groups": "ControlScheme",
-                    "action": "New action",
+                    "groups": "ControlScheme;MouseAndKeyboard",
+                    "action": "Sidestep",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -163,7 +163,7 @@
                     "path": "<Keyboard>/f",
                     "interactions": "",
                     "processors": "",
-                    "groups": "ControlScheme",
+                    "groups": "ControlScheme;MouseAndKeyboard",
                     "action": "Deflate",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -185,7 +185,7 @@
                     "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
-                    "groups": "ControlScheme",
+                    "groups": "ControlScheme;MouseAndKeyboard",
                     "action": "Rotate",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -196,7 +196,7 @@
                     "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
-                    "groups": "ControlScheme",
+                    "groups": "ControlScheme;MouseAndKeyboard",
                     "action": "Rotate",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -207,7 +207,7 @@
                     "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
-                    "groups": "ControlScheme",
+                    "groups": "ControlScheme;MouseAndKeyboard",
                     "action": "Rotate",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -218,7 +218,7 @@
                     "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
-                    "groups": "ControlScheme",
+                    "groups": "ControlScheme;MouseAndKeyboard",
                     "action": "Rotate",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -236,6 +236,22 @@
             "name": "EmptyScheme",
             "bindingGroup": "EmptyScheme",
             "devices": []
+        },
+        {
+            "name": "MouseAndKeyboard",
+            "bindingGroup": "MouseAndKeyboard",
+            "devices": [
+                {
+                    "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                },
+                {
+                    "devicePath": "<Mouse>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
         }
     ]
 }
