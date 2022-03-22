@@ -98,7 +98,7 @@ public class ActionInputHandler : MonoBehaviour, ICommandClient
         if (actions.TestMap1.Move.IsPressed())
         {
             input = actions.TestMap1.Move.ReadValue<Vector2>();
-            player.AddCommand<Command_Move>(new Command_Move(new Vector3(input.y, 0f, -input.x)));
+            player.AddCommand<Command_Move>(new Command_Move(new Vector3(input.x, 0f, input.y)));
         }
 
         if (actions.TestMap1.Inflate.IsPressed()) player.AddCommand<Command_Inflate>(new Command_Inflate());
@@ -106,7 +106,7 @@ public class ActionInputHandler : MonoBehaviour, ICommandClient
         if (actions.TestMap2.Rotate.IsPressed())
         {
             input = actions.TestMap2.Rotate.ReadValue<Vector2>();
-            player.AddCommand<Command_Rotate>(new Command_Rotate(new Vector3(-input.x, 0f, -input.y)));
+            player.AddCommand<Command_Rotate>(new Command_Rotate(new Vector3(input.y, 0f, -input.x)));
         }
 
         if (actions.TestMap2.Deflate.IsPressed()) player.AddCommand<Command_Deflate>(new Command_Deflate());
