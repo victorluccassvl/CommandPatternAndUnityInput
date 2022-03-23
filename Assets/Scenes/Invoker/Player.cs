@@ -15,11 +15,14 @@ public class Player : MonoBehaviour, ICommandInvoker
     [SerializeField] private float inflateRatio;
     [SerializeField] private float deflateRatio;
 
+    private Recorder recorder;
+    private bool playingRecord;
     private Rigidbody playerRigidbody;
 
     private Jump jump;
     private Move move;
-    private Resize resize;
+    private Resize inflate;
+    private Resize deflate;
     private Rotate rotate;
     private Sidestep sidestep;
 
@@ -32,55 +35,82 @@ public class Player : MonoBehaviour, ICommandInvoker
 
     private void Awake()
     {
+        recorder = GetComponent<Recorder>();
+        playingRecord = false;
         playerRigidbody = GetComponent<Rigidbody>();
 
         // Initialize command receivers
         jump = new Jump(playerRigidbody, jumpForce);
         move = new Move(playerRigidbody, moveSpeed);
-        resize = new Resize(transform);
+        inflate = new Resize(transform);
+        inflate.SetParameters(inflateRatio);
+        deflate = new Resize(transform);
+        deflate.SetParameters(deflateRatio);
         rotate = new Rotate(playerRigidbody, rotationForce);
         sidestep = new Sidestep(playerRigidbody, sidestepForce);
     }
 
     private void FixedUpdate()
     {
-        ExecuteCommands();
+        if (playingRecord)
+        {
+            playingRecord = recorder.PlayRecords();
+        }
+        else
+        {
+            ExecuteCommands();
+        }
+    }
+
+    public void RecordCommands()
+    {
+        if (recorder.IsRecording)
+        {
+            recorder.StopRecording();
+        }
+        else
+        {
+            recorder.StartRecording();
+        }
+    }
+
+    public void PlayRecord()
+    {
+        playingRecord = true;
     }
 
     private void ExecuteCommands()
     {
         if (jumpCommand != null)
         {
-            jumpCommand.Do(jump);
+            jumpCommand.Do(jump, recorder);
             jumpCommand = null;
         }
 
         if (sidestepCommand != null)
         {
-            sidestepCommand.Do(sidestep);
+            sidestepCommand.Do(sidestep, recorder);
             sidestepCommand = null;
         }
 
         while (rotateCommand.Count != 0)
         {
-            rotateCommand.Dequeue().Do(rotate);
+            rotateCommand.Dequeue().Do(rotate, recorder);
         }
 
         while (moveCommand.Count != 0)
         {
-            moveCommand.Dequeue().Do(move);
+            moveCommand.Dequeue().Do(move, recorder);
         }
 
         while (inflateCommand.Count != 0)
         {
-            resize.SetParameters(inflateRatio);
-            inflateCommand.Dequeue().Do(resize);
+            inflateCommand.Dequeue().Do(inflate, recorder);
         }
 
         while (deflateCommand.Count != 0)
         {
-            resize.SetParameters(deflateRatio);
-            deflateCommand.Dequeue().Do(resize);
+            deflateCommand.Dequeue().Do(deflate, recorder);
         }
     }
 

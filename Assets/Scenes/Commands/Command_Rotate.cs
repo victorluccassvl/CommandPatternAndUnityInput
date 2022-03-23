@@ -10,12 +10,13 @@ public class Command_Rotate : ICommand
         this.eulerAngles = eulerAngles;
     }
 
-    public void Do(ICommandReceiver receiver)
+    public void Do(ICommandReceiver receiver, ICommandRecorder recorder = null)
     {
         if (receiver is Rotate rotate)
         {
             rotate.SetParameters(eulerAngles);
             rotate.Work();
+            if (recorder != null) recorder.AddRecord(this, receiver);
         }
     }
 }

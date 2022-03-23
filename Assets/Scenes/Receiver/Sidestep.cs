@@ -26,9 +26,9 @@ public class Sidestep : ICommandReceiver
 
     public void Work()
     {
-        float direction = (right)? 1f : -1f;
-        rigidbody.velocity =  Vector3.zero;
-        rigidbody.AddForce(direction * Vector3.forward * force, ForceMode.Impulse);
+        float direction = (right) ? 1f : -1f;
+        rigidbody.velocity = Vector3.zero;
+        rigidbody.AddForce(direction * Vector3.right * force, ForceMode.Impulse);
         right = !right;
     }
 }

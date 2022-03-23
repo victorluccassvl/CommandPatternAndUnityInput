@@ -218,6 +218,7 @@ GameObject:
   - component: {fileID: 610171346}
   - component: {fileID: 610171345}
   - component: {fileID: 610171344}
+  - component: {fileID: 610171347}
   m_Layer: 0
   m_Name: ActorThree
   m_TagString: Player
@@ -275,6 +276,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &610171347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 610171343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17fc73840fbf62948b6adf2e3abc31fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &642565581
 GameObject:
   m_ObjectHideFlags: 0
@@ -432,7 +445,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &943897038
 Transform:
   m_ObjectHideFlags: 0
@@ -460,6 +473,7 @@ GameObject:
   - component: {fileID: 1047227646}
   - component: {fileID: 1047227645}
   - component: {fileID: 1047227644}
+  - component: {fileID: 1047227647}
   m_Layer: 0
   m_Name: ActorTwo
   m_TagString: Player
@@ -517,6 +531,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1047227647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1047227643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17fc73840fbf62948b6adf2e3abc31fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1249019621
 GameObject:
   m_ObjectHideFlags: 0
@@ -626,7 +652,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1375161496
 Transform:
   m_ObjectHideFlags: 0
@@ -752,6 +778,7 @@ GameObject:
   - component: {fileID: 1853244175}
   - component: {fileID: 1853244174}
   - component: {fileID: 1853244176}
+  - component: {fileID: 1853244177}
   m_Layer: 0
   m_Name: ActorOne
   m_TagString: Player
@@ -809,6 +836,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1853244177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1853244173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17fc73840fbf62948b6adf2e3abc31fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1946088634
 GameObject:
   m_ObjectHideFlags: 0

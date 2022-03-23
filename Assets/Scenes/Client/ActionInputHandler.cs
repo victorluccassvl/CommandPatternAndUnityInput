@@ -18,7 +18,8 @@ public class ActionInputHandler : MonoBehaviour, ICommandClient
     {
         SelectPlayer();
         HandleInputMapChange();
-        GenerateContinuousCommands();
+        HandleRecordingInputs();
+        HandleContinuousCommandsGeneration();
         UpdateCamera();
     }
 
@@ -74,7 +75,7 @@ public class ActionInputHandler : MonoBehaviour, ICommandClient
 
     private void HandleInputMapChange()
     {
-        if (Keyboard.current.rKey.wasPressedThisFrame)
+        if (Keyboard.current.eKey.wasPressedThisFrame)
         {
             if (actions.TestMap1.enabled)
             {
@@ -89,7 +90,25 @@ public class ActionInputHandler : MonoBehaviour, ICommandClient
         }
     }
 
-    private void GenerateContinuousCommands()
+    private void HandleRecordingInputs()
+    {
+        if (Keyboard.current.rKey.wasPressedThisFrame)
+        {
+            if (player != null)
+            {
+                player.RecordCommands();
+            }
+        }
+        if (Keyboard.current.pKey.wasPressedThisFrame)
+        {
+            if (player != null)
+            {
+                player.PlayRecord();
+            }
+        }
+    }
+
+    private void HandleContinuousCommandsGeneration()
     {
         if (player == null) return;
 

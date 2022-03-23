@@ -22,6 +22,7 @@ public class RawInputHandler : MonoBehaviour, ICommandClient
     {
         SelectPlayer();
         HandleInputMapChange();
+        HandleRecordingInputs();
         HandleCommandGeneration();
         UpdateCamera();
     }
@@ -44,9 +45,27 @@ public class RawInputHandler : MonoBehaviour, ICommandClient
 
     private void HandleInputMapChange()
     {
-        if (Keyboard.current.rKey.wasPressedThisFrame)
+        if (Keyboard.current.eKey.wasPressedThisFrame)
         {
             map = (map == InputMap.FirstMap) ? map = InputMap.SecondMap : map = InputMap.FirstMap;
+        }
+    }
+
+    private void HandleRecordingInputs()
+    {
+        if (Keyboard.current.rKey.wasPressedThisFrame)
+        {
+            if (player != null)
+            {
+                player.RecordCommands();
+            }
+        }
+        if (Keyboard.current.pKey.wasPressedThisFrame)
+        {
+            if (player != null)
+            {
+                player.PlayRecord();
+            }
         }
     }
 

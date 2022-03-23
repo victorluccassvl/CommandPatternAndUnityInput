@@ -10,12 +10,13 @@ public class Command_Move : ICommand
         this.direction = direction;
     }
 
-    public void Do(ICommandReceiver receiver)
+    public void Do(ICommandReceiver receiver, ICommandRecorder recorder = null)
     {
         if (receiver is Move move)
         {
             move.SetParameters(direction);
             move.Work();
+            if (recorder != null) recorder.AddRecord(this, receiver);
         }
     }
 }
